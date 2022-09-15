@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+  // display player names when they input their names and click the submit button
+
   let play1 = `Player 1`;
   let play2 = `Player 2`;
 
@@ -15,22 +17,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById(`player2-name`).value = ``;
   })
 
-
-  for(let i = 0; i < 3; i++) {
-    for(let j = 0; j < 3; j++) {
-
-    }
-  }
-
-  // let box00 = document.getElementById(`box00`);
-  // let box01 = document.getElementById(`box01`);
-  // let box02 = document.getElementById(`box02`);
-  // let box10 = document.getElementById(`box10`);
-  // let box11 = document.getElementById(`box11`);
-  // let box12 = document.getElementById(`box12`);
-  // let box20 = document.getElementById(`box20`);
-  // let box21 = document.getElementById(`box21`);
-  // let box22 = document.getElementById(`box22`);
+  /*
+  Assign the div box ID into arrays. Example:
+    boxArr[0][0] = document.getElementById(`box00`);
+    boxArr[0][1] = document.getElementById(`box01`);
+  */
 
   let boxArr = [];
 
@@ -41,32 +32,27 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  /*
-  Assign the div box ID into arrays. Example:
-    document.getElementById(`box00`) = boxArr[0][0];
-    document.getElementById(`box01`) = boxArr[0][1];
-  */
+  // on click, change box color
 
   for(let i = 0; i < 3; i++) {
     for(let j = 0; j < 3; j++) {
       boxArr[i][j].addEventListener(`click`, () => {
         boxArr[i][j].style.backgroundColor = `red`;
+        checkWinningMove();
       })
+      
     }
   }
 
-
-  // for(let i = 0; i < 3; i++) {
-  //   for(let j = 0; j < 3; j++) {
-  //     document.getElementById(`box${i}${j}`).addEventListener(`click`, () => {
-  //       document.getElementById(`box${i}${j}`).style.backgroundColor = `red`;
-  //     })  
-  //   }
-  // }
+  // document.getElementsByClassName(`box`).addEventListener(`click`, (e) => {
+  //   e.target.style.backgroundColor = `red`;
+  // })
   
-  // if((box00.style.backgroundColor == 'red') && (box01.style.backgroundColor == 'red') && (box02.style.backgroundColor == 'red')) {
-  //   alert(`Congratulations! ${play1} has won the game!`)
-  // }
+  const checkWinningMove = () => {
+    if((boxArr[0][0].style.backgroundColor == 'red') && (boxArr[0][1].style.backgroundColor == 'red') && (boxArr[0][2].style.backgroundColor == 'red')) {
+      document.getElementById(`result`).innerHTML = `There's a match three! ${play1} won!`;
+    }
+  }
 
 
 })
