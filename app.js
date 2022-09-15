@@ -46,11 +46,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for(let i =0; i < 3; i++) {
       if(
-        ( (boxArr[i][0].style.backgroundColor == 'red') && (boxArr[i][1].style.backgroundColor == 'red') && (boxArr[i][2].style.backgroundColor == 'red') ) ||
-        ( (boxArr[0][i].style.backgroundColor == 'red') && (boxArr[1][i].style.backgroundColor == 'red') && (boxArr[2][i].style.backgroundColor == 'red') ) ||
-        ( (boxArr[0][0].style.backgroundColor == 'red') && (boxArr[1][1].style.backgroundColor == 'red') && (boxArr[2][2].style.backgroundColor == 'red'))
+        ( (boxArr[i][0].style.backgroundColor == currentPlayer.color) && (boxArr[i][1].style.backgroundColor == currentPlayer.color) && (boxArr[i][2].style.backgroundColor == currentPlayer.color) ) ||
+        ( (boxArr[0][i].style.backgroundColor == currentPlayer.color) && (boxArr[1][i].style.backgroundColor == currentPlayer.color) && (boxArr[2][i].style.backgroundColor == currentPlayer.color) ) ||
+        ( (boxArr[0][0].style.backgroundColor == currentPlayer.color) && (boxArr[1][1].style.backgroundColor == currentPlayer.color) && (boxArr[2][2].style.backgroundColor == currentPlayer.color) ) ||
+        ( (boxArr[0][2].style.backgroundColor == currentPlayer.color) && (boxArr[1][1].style.backgroundColor == currentPlayer.color) && (boxArr[2][0].style.backgroundColor == currentPlayer.color) )
       ) {
-        document.getElementById(`result`).innerHTML = `That's a match three! ${play1.name} won!`;
+        document.getElementById(`result`).innerHTML = `That's a match three! ${currentPlayer.name} won!`;
         isWon = true;
       }
     }
@@ -58,8 +59,8 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // setting variables
 
-  let isWon = false;
-  let currentPlayer = play1;
+  let isWon = false; // while the game is not yet won
+  let currentPlayer = play1; // shows current player's turn
 
   /*
   Assign the div box ID into arrays. Example:
