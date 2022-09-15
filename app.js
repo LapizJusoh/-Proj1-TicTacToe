@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
   */
 
   let boxArr = [];
+  let isWon = false;
 
   for(let i = 0; i < 3; i++) {
     boxArr.push([]);
@@ -37,25 +38,39 @@ document.addEventListener("DOMContentLoaded", function() {
   for(let i = 0; i < 3; i++) {
     for(let j = 0; j < 3; j++) {
       boxArr[i][j].addEventListener(`click`, () => {
+        if (!isWon) {
         boxArr[i][j].style.backgroundColor = `red`;
-        checkWinningMove();
+        checkMatchThree();
+        }
       })
       
     }
   }
 
-  // document.getElementsByClassName(`box`).addEventListener(`click`, (e) => {
-  //   e.target.style.backgroundColor = `red`;
-  // })
-  
-  const checkWinningMove = () => {
-    if((boxArr[0][0].style.backgroundColor == 'red') && (boxArr[0][1].style.backgroundColor == 'red') && (boxArr[0][2].style.backgroundColor == 'red')) {
-      document.getElementById(`result`).innerHTML = `There's a match three! ${play1} won!`;
+  const checkMatchThree = () => {
+    if (
+      ( (boxArr[0][0].style.backgroundColor == 'red') && (boxArr[0][1].style.backgroundColor == 'red') && (boxArr[0][2].style.backgroundColor == 'red') ) ||
+      ( (boxArr[1][0].style.backgroundColor == 'red') && (boxArr[1][1].style.backgroundColor == 'red') && (boxArr[1][2].style.backgroundColor == 'red') ) ||
+      ( (boxArr[2][0].style.backgroundColor == 'red') && (boxArr[2][1].style.backgroundColor == 'red') && (boxArr[2][2].style.backgroundColor == 'red') ) ||
+      ( (boxArr[0][0].style.backgroundColor == 'red') && (boxArr[1][1].style.backgroundColor == 'red') && (boxArr[2][2].style.backgroundColor == 'red') ) ||
+      ( (boxArr[2][0].style.backgroundColor == 'red') && (boxArr[1][1].style.backgroundColor == 'red') && (boxArr[0][2].style.backgroundColor == 'red') ) ||
+      ( (boxArr[0][0].style.backgroundColor == 'red') && (boxArr[1][0].style.backgroundColor == 'red') && (boxArr[2][0].style.backgroundColor == 'red') ) ||
+      ( (boxArr[0][1].style.backgroundColor == 'red') && (boxArr[1][1].style.backgroundColor == 'red') && (boxArr[2][1].style.backgroundColor == 'red') ) ||
+      ( (boxArr[0][2].style.backgroundColor == 'red') && (boxArr[1][2].style.backgroundColor == 'red') && (boxArr[2][2].style.backgroundColor == 'red') )
+    ){
+      document.getElementById(`result`).innerHTML = `That's a match three! ${play1} won!`;
+      isWon = true;
     }
   }
 
-
 })
+
+  // document.getElementsByClassName(`box`).addEventListener(`click`, (e) => {
+  //   e.target.style.backgroundColor = `red`;
+  // })
+
+
+
 
 
 
