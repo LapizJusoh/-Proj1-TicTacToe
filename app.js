@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   const play1 = new Player('red');
-  const play2 = new Player('blue')
+  const play2 = new Player('blue');
  
 
 
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // check win condition
 
-  const checkMatchThree = () => {
+  const checkEndCondition = () => {
 
     for(let i =0; i < 3; i++) {
       if(
@@ -54,13 +54,22 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById(`result`).innerHTML = `That's a match three! ${currentPlayer.name} won!`;
         isWon = true;
       }
+
+      if ( ( boxArr[0].every( (element) => element.style.backgroundColor != `white`) ) &&
+      ( boxArr[1].every( (element) => element.style.backgroundColor != `white`) ) &&
+      ( boxArr[2].every( (element) => element.style.backgroundColor != `white`) ) ) {
+        document.getElementById(`result`).innerHTML = `All the boxes are filled up! It's a tie!`
+        isADraw = true;
+      }
     }
   }
   
   // setting variables
 
   let isWon = false; // while the game is not yet won
+  let isADraw = false; // while the game did not end in a draw
   let currentPlayer = play1; // shows current player's turn
+  let filledBox = 0; // display number of filled box
 
   /*
   Assign the div box ID into arrays. Example:
@@ -73,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
       boxArr.push([]);
       for(let j = 0; j < 3; j++) {
         boxArr[i].push(document.getElementById(`box${i}${j}`))
+        boxArr[i][j].style.backgroundColor = `white`;
       }
     }
 
@@ -81,22 +91,20 @@ document.addEventListener("DOMContentLoaded", function() {
   for(let i = 0; i < 3; i++) {
     for(let j = 0; j < 3; j++) {
       boxArr[i][j].addEventListener(`click`, () => {
-        if (!isWon) {
-          boxArr[i][j].style.backgroundColor = currentPlayer.color;
-          checkMatchThree();
-          if (!isWon) {
-            currentPlayer.changePlayer();
-          }
+        if ( (!isWon) && (!isADraw) ) {
+            if (boxArr[i][j].style.backgroundColor == `white`) {
+              boxArr[i][j].style.backgroundColor = currentPlayer.color;
+              filledBox++;
+              checkEndCondition(); // check for winning condition
+              if ( (!isWon) || (!isADraw) ) { 
+                currentPlayer.changePlayer();
+              }
+            }
         }
       })
     }
   }
-
 })
-
-  // document.getElementsByClassName(`box`).addEventListener(`click`, (e) => {
-  //   e.target.style.backgroundColor = `red`;
-  // })
 
 
 
