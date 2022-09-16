@@ -1,5 +1,29 @@
+* {
+  margin: 0;
+  font-size: 1em;
+  line-height: normal;
+}
+
+body {
+  background-image: url('https://i.imgur.com/JVTBj0m.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+main {
+  background-color: #DCD7C9;
+  width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 15px;
+}
+
 header {
   text-align: center;
+}
+
+h1 {
+  font-size: 1.4em;
 }
 
 #game-board {
