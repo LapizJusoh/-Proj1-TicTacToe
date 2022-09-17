@@ -15,12 +15,14 @@ document.addEventListener("DOMContentLoaded", function() {
       } else if (this == play2) {
         currentPlayer = play1;
       }
+
+      if ( (!isWon) && (!isADraw) ) {
+        document.getElementById(`result`).innerHTML = `It is currently ${currentPlayer.name}'s turn`
+      }
     }
 
   }
  
-
-
   // display player names when they input their names and click the submit button
 
   document.getElementById(`submitPlay1Name`).addEventListener('click', () => {
@@ -28,13 +30,19 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById(`displayPlay1Name`).innerText = ` ${play1.name}`;
     document.getElementById(`player1-name`).style.display = `none`;
     document.getElementById(`submitPlay1Name`).style.display = `none`;
+    if ( (play1.name != ``) && (play2.name != ``) ) {
+      document.getElementById(`playGame`).style.display = `block`;
+    }
   })
   
   document.getElementById(`submitPlay2Name`).addEventListener('click', () => {
     play2.name = document.getElementById(`player2-name`).value;
-    document.getElementById(`displayPlay2Name`).innerText = ` Welcome back, ${play2.name}`;
+    document.getElementById(`displayPlay2Name`).innerText = ` ${play2.name}`;
     document.getElementById(`player2-name`).style.display = `none`;
     document.getElementById(`submitPlay2Name`).style.display = `none`;
+    if ( (play1.name != ``) && (play2.name != ``) ) {
+      document.getElementById(`playGame`).style.display = `inline-block`;
+    }
   })
 
   // check win condition
@@ -68,6 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
   let isWon = false; // while the game is not yet won
   let isADraw = false; // while the game did not end in a draw
   let currentPlayer = play1; // shows current player's turn
+
+  document.getElementById(`result`).innerHTML = `It is currently ${currentPlayer.name}'s turn` // display current player's turn
 
   /*
   Assign the div box ID into arrays. Example:

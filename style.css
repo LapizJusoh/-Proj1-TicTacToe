@@ -10,7 +10,18 @@ body {
   background-size: 100%;
 }
 
+/*
+iframe {
+  position: absolute;
+  width: 420px;
+  height: 315px;
+  top: 0;
+  right: 0;
+}
+*/
+
 main {
+  position: relative;
   background-color: #DCD7C9;
   width: 600px;
   height: 100vh;
@@ -25,18 +36,8 @@ header {
 h1 {
   font-size: 1.4em;
 }
-
-#game-board {
-  background-color:aqua;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 30px;
-  width: 500px;
-  height: 500px;
-}
-
-#result {
-  text-align: center;
+.nameInput {
+  width: 25%;
 }
 
 .boxLine {
@@ -49,4 +50,39 @@ h1 {
   width: 120px;
   height: 120px;
   margin: 15px;
+}
+#game-board {
+  background-color:aqua;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  width: 500px;
+  height: 500px;
+}
+
+#result {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+#play1Score {
+  position: absolute;
+  display: inline;
+  text-align: center;
+  left: 20px;
+  bottom: 40px;
+  font-size: 2em;
+}
+
+#play2Score {
+  position: absolute;
+  display: inline;
+  text-align: center;
+  right: 20px;
+  bottom: 40px;
+  font-size: 2em;
+}
+
+#playGame {
+  display: none;
 }
