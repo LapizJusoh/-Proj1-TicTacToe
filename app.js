@@ -131,9 +131,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById(`play2ScoreBoard`).innerText = play2.name;
     document.getElementById(`play1Score`).style.display = `inline`;
     document.getElementById(`play2Score`).style.display = `inline`;
-    document.getElementById(`roundSelect`).style.display = `hidden`;
-    document.getElementById(`rounds`).style.display = `hidden`;
-    document.getElementById(`playGame`).style.display = `hidden`;
+    document.getElementById(`roundSelect`).style.display = `none`;
+    document.getElementById(`rounds`).style.display = `none`;
+    document.getElementById(`playGame`).style.display = `none`;
   })
 
   // on click and if nobody wins yet, change box color.
