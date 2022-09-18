@@ -16,7 +16,7 @@
       <br>
       <label>Player 1:</label> <input type=text class="nameInput" id="player1-name" value="Player 1" required> <button id="submitPlay1Name">Submit</button><span id="displayPlay1Name"></span><br>
       <label>Player 2:</label> <input type=text class="nameInput" id="player2-name" value="Player 2" required> <button id="submitPlay2Name">Submit</button><span id="displayPlay2Name"></span><br><br>
-      <label for="rounds">How many round(s) do you wish to play?</label><br><br>
+      <label for="rounds" id="roundSelect">How many round(s) do you wish to play?</label><br><br>
       <select id="rounds">
         <option value="1">1 Round</option>
         <option value="2">2 Rounds</option>
@@ -25,6 +25,7 @@
         <option value="5">5 Rounds</option>
       </select>
       <br><br><br>
+      <span id="playGameRequirement">Please submit player name and number of rounds to play the game.</span>
       <button id="playGame">Play Game</button>
       <!--<p>Or do you want to play against the COMPUTER?</p>
       <button id="yesComp">Yes</button><button id="noComp">No</button> -->
@@ -53,12 +54,12 @@
     
     <div class="scoringBoard" id="play1Score">
       <p><span id="play1ScoreBoard">Player name</span>'s score</p>
-      <p id="displayPlay1Score">0</p>
+      <p id="displayredScore">0</p>
     </div>
 
     <div class="scoringBoard" id="play2Score">
       <p><span id="play2ScoreBoard">Player name</span>'s score</p>
-      <p id="displayPlay2Score">0</p>
+      <p id="displayblueScore">0</p>
     </div>
   </main>
 
