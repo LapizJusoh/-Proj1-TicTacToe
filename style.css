@@ -10,7 +10,7 @@ body {
   background-size: 100%;
 }
 
-/*
+
 iframe {
   position: absolute;
   width: 420px;
@@ -18,7 +18,7 @@ iframe {
   top: 0;
   right: 0;
 }
-*/
+
 
 main {
   position: relative;
@@ -31,6 +31,7 @@ main {
 
 header {
   text-align: center;
+  line-height: 2em;
 }
 
 h1 {
@@ -58,12 +59,17 @@ h1 {
 
 #game-board {
   display: none;
-  background-color:aqua;
+  background-color:#182747;
+  border-radius: 50px;
   margin-left: auto;
   margin-right: auto;
   padding: 30px;
   width: 500px;
   height: 500px;
+}
+
+#currentRound {
+  text-align: center;
 }
 
 #result {
@@ -72,12 +78,21 @@ h1 {
   font-size: 1.5em;
 }
 
+#nextRound{
+  display: none;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
 #play1Score {
   position: absolute;
   display: none;
   text-align: center;
   left: 20px;
-  bottom: 40px;
+  bottom: 0;
   font-size: 2em;
 }
 
@@ -86,7 +101,7 @@ h1 {
   display: none;
   text-align: center;
   right: 20px;
-  bottom: 40px;
+  bottom: 0;
   font-size: 2em;
 }
 

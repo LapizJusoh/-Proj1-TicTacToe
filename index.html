@@ -8,15 +8,15 @@
   <title>Lo-Fi Tic-Tac-Toe</title>
 </head>
 <body>
-  <!-- <iframe src="https://www.youtube.com/embed/c0_ejQQcrwI?autoplay=1"></iframe> -->
+  <iframe src="https://www.youtube.com/embed/c0_ejQQcrwI?autoplay=1"></iframe>
   <main>
     <header>
       <h1>Lo-Fi Tic-Tac-Toe</h1>
       <p><em>Slow down. Relax. Enjoy yourself.</em></p>
       <br>
       <label>Player 1:</label> <input type=text class="nameInput" id="player1-name" value="Player 1" required> <button id="submitPlay1Name">Submit</button><span id="displayPlay1Name"></span><br>
-      <label>Player 2:</label> <input type=text class="nameInput" id="player2-name" value="Player 2" required> <button id="submitPlay2Name">Submit</button><span id="displayPlay2Name"></span><br><br>
-      <label for="rounds" id="roundSelect">How many round(s) do you wish to play?</label><br><br>
+      <label>Player 2:</label> <input type=text class="nameInput" id="player2-name" value="Player 2" required> <button id="submitPlay2Name">Submit</button><span id="displayPlay2Name"></span><br>
+      <label for="rounds" id="roundSelect">How many round(s) do you wish to play?</label><br>
       <select id="rounds">
         <option value="1">1 Round</option>
         <option value="2">2 Rounds</option>
@@ -24,7 +24,7 @@
         <option value="4">4 Rounds</option>
         <option value="5">5 Rounds</option>
       </select>
-      <br><br><br>
+      <br>
       <span id="playGameRequirement">Please submit player name and number of rounds to play the game.</span>
       <button id="playGame">Play Game</button>
       <!--<p>Or do you want to play against the COMPUTER?</p>
@@ -33,7 +33,8 @@
 
     <br>
     <br>
-    <h1 id="result"></h1><br>
+    <h1 id="currentRound"></h1>
+    <h1 id="result"></h1><button id="nextRound">Play Next Round</button><br><br>
     <div id="game-board">
       <div class="boxLine">
         <div class="box" id="box00"></div>
@@ -51,7 +52,8 @@
         <div class="box" id="box22"></div>
       </div>
     </div>
-    
+    <br>
+    <br>
     <div class="scoringBoard" id="play1Score">
       <p><span id="play1ScoreBoard">Player name</span>'s score</p>
       <p id="displayredScore">0</p>

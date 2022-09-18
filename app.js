@@ -47,6 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
         isWon = true;
         currentPlayer.score = currentPlayer.score + 1;
         document.getElementById(`display${currentPlayer.color}Score`).innerText = `${currentPlayer.score.toString()}`;
+        if (round < maxRound) {
+          document.getElementById(`nextRound`).style.display = `inline`;
+        }
       }
 
       if (
@@ -62,9 +65,30 @@ document.addEventListener("DOMContentLoaded", function () {
           `result`
         ).innerHTML = `All the boxes are filled up! It's a tie!`;
         isADraw = true;
+        if (round < maxRound) {
+          document.getElementById(`nextRound`).style.display = `inline`;
+        }
       }
     }
   };
+
+  // Play next round
+
+  document.getElementById(`nextRound`).addEventListener(`click`, () => {
+    round++;
+    document.getElementById(`currentRound`).innerText = `Round ${round} of ${maxRound}`;
+    isWon = false;
+    isADraw = false;
+    initialPlayer.changePlayer();
+    initialPlayer = currentPlayer;
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        boxArr[i][j].style.backgroundColor = `white`;
+      }
+    }
+    document.getElementById(`nextRound`).style.display = `none`;
+
+  })
 
   // setting variables
 
@@ -73,11 +97,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let isWon = false; // while the game is not yet won
   let isADraw = false; // while the game did not end in a draw
   let currentPlayer = play1; // shows current player's turn
+  let initialPlayer = play1;
   let round = 1;
+  let maxRound;
 
-  document.getElementById(
-    `result`
-  ).innerHTML = `It is currently ${currentPlayer.name}'s turn`; // display current player's turn
+  document.getElementById(`result`).innerHTML = `It is currently ${currentPlayer.name}'s turn`; // display current player's turn
 
   /*
   Assign the div box ID into arrays. Example:
@@ -124,6 +148,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById(`playGame`).addEventListener(`click`, () => {
     document.getElementById(`result`).innerHTML = `It is currently ${currentPlayer.name}'s turn`;
     document.getElementById(`result`).style.display = `block`;
+    maxRound = document.getElementById(`rounds`).value;
+    document.getElementById(`currentRound`).innerText = `Round ${round} of ${maxRound}`
     document.getElementById(`game-board`).style.display = `block`;
     document.getElementById(`play1ScoreBoard`).style.color = `red`;
     document.getElementById(`play1ScoreBoard`).innerText = play1.name;
