@@ -33,17 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
           boxArr[i][2].style.backgroundColor == currentPlayer.color) ||
         (boxArr[0][i].style.backgroundColor == currentPlayer.color &&
           boxArr[1][i].style.backgroundColor == currentPlayer.color &&
-          boxArr[2][i].style.backgroundColor == currentPlayer.color) ||
-        (boxArr[0][0].style.backgroundColor == currentPlayer.color &&
-          boxArr[1][1].style.backgroundColor == currentPlayer.color &&
-          boxArr[2][2].style.backgroundColor == currentPlayer.color) ||
-        (boxArr[0][2].style.backgroundColor == currentPlayer.color &&
-          boxArr[1][1].style.backgroundColor == currentPlayer.color &&
-          boxArr[2][0].style.backgroundColor == currentPlayer.color)
+          boxArr[2][i].style.backgroundColor == currentPlayer.color)
       ) {
-        document.getElementById(
-          `result`
-        ).innerHTML = `That's a match three! ${currentPlayer.name} won!`;
+        document.getElementById(`result`).innerHTML = `That's a match three! ${currentPlayer.name} won!`;
         isWon = true;
         currentPlayer.score = currentPlayer.score + 1;
         document.getElementById(`display${currentPlayer.color}Score`).innerText = `${currentPlayer.score.toString()}`;
@@ -68,6 +60,23 @@ document.addEventListener("DOMContentLoaded", function () {
         if (round < maxRound) {
           document.getElementById(`nextRound`).style.display = `inline`;
         }
+      }
+    }
+
+    if (
+      (boxArr[0][0].style.backgroundColor == currentPlayer.color &&
+        boxArr[1][1].style.backgroundColor == currentPlayer.color &&
+        boxArr[2][2].style.backgroundColor == currentPlayer.color) ||
+      (boxArr[0][2].style.backgroundColor == currentPlayer.color &&
+        boxArr[1][1].style.backgroundColor == currentPlayer.color &&
+        boxArr[2][0].style.backgroundColor == currentPlayer.color)
+    ) {
+      document.getElementById(`result`).innerHTML = `That's a match three! ${currentPlayer.name} won!`;
+      isWon = true;
+      currentPlayer.score = currentPlayer.score + 1;
+      document.getElementById(`display${currentPlayer.color}Score`).innerText = `${currentPlayer.score.toString()}`;
+      if (round < maxRound) {
+        document.getElementById(`nextRound`).style.display = `inline`;
       }
     }
   };
