@@ -1,11 +1,14 @@
 # Proj1-TicTacToe
 A simple game of Tic-Tac-Toe in a cafe-like environment- to be enjoyed leisurely~
 
+![Tic-Tac-Toe Screenshot 1](https://i.imgur.com/WKlN9Xt.png)
+![Tic-Tac-Toe Screenshot 2](https://i.imgur.com/D6thfVP.png)
+
 ## Features
 - Jazzy, comforting music to soothe your soul~
 - Player-name input, to personalize your name.
 - Turn-based Tic-Tac-Toe game
-- Number of Round
+- Number of Rounds customizable
 
 ## Methodologies & Technologies used
 - Arrays. Since the play area is a box consisting of 3x3, applying an array into them makes it easier to check for win conditions.
